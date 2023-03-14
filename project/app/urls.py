@@ -1,14 +1,18 @@
-from django.urls import path
-from .views import ViewFilm , ViewFilms, ViewDirector,  ViewDirectors , ViewJanr, ViewJanrs, ViewArticle, ViewArticles
+from django.urls import path, include
+from .views import ViewCategory, ViewPets, ViewStatus, ViewType, ViewOrderStatus, ViewOrder
+from rest_framework import routers
+
+router = routers.SimpleRouter()
+
+router.register(r'types', ViewType)
+router.register(r'pets', ViewPets)
+router.register(r'categoryes', ViewCategory)
+router.register(r'statusespet', ViewStatus)
+router.register(r'statusesorder', ViewOrderStatus)
+router.register(r'orders', ViewOrder)
+
 
 
 urlpatterns = [
-    path('films', ViewFilms.as_view()),
-    path('films/<int:pk>', ViewFilm.as_view()),
-    path('directors', ViewDirectors.as_view()),
-    path('directors/<int:pk>', ViewDirector.as_view()),
-    path('janrs', ViewJanrs.as_view()),
-    path('janrs/<int:pk>', ViewJanr.as_view()),
-    path('articles', ViewArticles.as_view()),
-    path('articles/<int:pk>', ViewArticle.as_view())
+    path('', include(router.urls)),
 ]

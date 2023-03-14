@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import Janr, Films, Directior, Article
+from .models import Pets, Category, StatusPet, Type, Order, StatusOrder
 
-
-admin.site.register(Janr)
-admin.site.register(Directior)
-admin.site.register(Films)
-admin.site.register(Article)
+admin.site.register(Category)
+admin.site.register(Type)
+admin.site.register(StatusPet)
+admin.site.register(Pets)
+admin.site.register(Order)
+admin.site.register(StatusOrder)

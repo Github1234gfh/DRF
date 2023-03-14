@@ -1,36 +1,27 @@
+from rest_framework import  viewsets
+from .models import Pets, Category, Type, StatusPet, StatusOrder, Order
+from .serializer import PerSerialzer, CategorySerializer, TypeSeralizer, StatusPetSerializer, OrderSerializer, StatusOrderSerializer
 
-from rest_framework.generics import ListCreateAPIView ,RetrieveUpdateDestroyAPIView
-from .seriolizer import FilmsSeriolizer, JanrSeriolizer, DirectiorSeriolizer, ArticleSeriolizer
-from .models import Films, Article, Directior, Janr
+class ViewPets(viewsets.ModelViewSet):
+    queryset = Pets.objects.all()
+    serializer_class = PerSerialzer
 
-class ViewFilms(ListCreateAPIView):
-    queryset = Films.objects.all()
-    serializer_class = FilmsSeriolizer
+class ViewCategory(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
-class ViewFilm(RetrieveUpdateDestroyAPIView):
-    queryset = Films.objects.all()
-    serializer_class = FilmsSeriolizer
+class ViewStatus(viewsets.ModelViewSet):
+    queryset = StatusPet.objects.all()
+    serializer_class = StatusPetSerializer
 
-class ViewDirectors(ListCreateAPIView):
-    queryset = Directior.objects.all()
-    serializer_class = DirectiorSeriolizer
+class ViewType(viewsets.ModelViewSet):
+    queryset = Type.objects.all()
+    serializer_class = TypeSeralizer
 
-class ViewDirector(RetrieveUpdateDestroyAPIView):
-    queryset = Directior.objects.all()
-    serializer_class = DirectiorSeriolizer
+class ViewOrderStatus(viewsets.ModelViewSet):
+    queryset = StatusOrder.objects.all()
+    serializer_class = StatusOrderSerializer
 
-class ViewJanrs(ListCreateAPIView):
-    queryset = Janr.objects.all()
-    serializer_class = JanrSeriolizer
-
-class ViewJanr(RetrieveUpdateDestroyAPIView):
-    queryset = Janr.objects.all()
-    serializer_class = JanrSeriolizer
-
-class ViewArticles(ListCreateAPIView):
-    queryset = Article.objects.all()
-    serializer_class = ArticleSeriolizer
-
-class ViewArticle(RetrieveUpdateDestroyAPIView):
-    queryset = Article.objects.all()
-    serializer_class = ArticleSeriolizer
+class ViewOrder(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
