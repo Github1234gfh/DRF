@@ -1,27 +1,11 @@
-from rest_framework import  viewsets
-from .models import Pets, Category, Type, StatusPet, StatusOrder, Order
-from .serializer import PerSerialzer, CategorySerializer, TypeSeralizer, StatusPetSerializer, OrderSerializer, StatusOrderSerializer
+from rest_framework import viewsets
+from .models import Product, Bin
+from .serializer import ProductSerializer, BinSerializer
 
-class ViewPets(viewsets.ModelViewSet):
-    queryset = Pets.objects.all()
-    serializer_class = PerSerialzer
+class ViewProduct(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
-class ViewCategory(viewsets.ModelViewSet):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-
-class ViewStatus(viewsets.ModelViewSet):
-    queryset = StatusPet.objects.all()
-    serializer_class = StatusPetSerializer
-
-class ViewType(viewsets.ModelViewSet):
-    queryset = Type.objects.all()
-    serializer_class = TypeSeralizer
-
-class ViewOrderStatus(viewsets.ModelViewSet):
-    queryset = StatusOrder.objects.all()
-    serializer_class = StatusOrderSerializer
-
-class ViewOrder(viewsets.ModelViewSet):
-    queryset = Order.objects.all()
-    serializer_class = OrderSerializer
+class ViewBin(viewsets.ModelViewSet):
+    queryset = Bin.objects.all()
+    serializer_class = BinSerializer
