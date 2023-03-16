@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Product, Bin
+from .models import Order, OrderStatus, Worker, Job
 
-admin.site.register(Product)
-admin.site.register(Bin)
+admin.site.register(Order)
+admin.site.register(OrderStatus)
+admin.site.register(Worker)
+admin.site.register(Job)
