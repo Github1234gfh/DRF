@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from .models import Product, Bin
-from .serializer import ProductSerializer, BinSerializer
+from .serializers import ProductSerializer, BinSerializer
 
 class ViewProduct(viewsets.ModelViewSet):
     queryset = Product.objects.all()
