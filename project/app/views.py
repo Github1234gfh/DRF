@@ -1,6 +1,6 @@
 from rest_framework import  viewsets
 from .models import Pets, Category, Type, StatusPet, StatusOrder, Order
-from .serializer import PerSerialzer, CategorySerializer, TypeSeralizer, StatusPetSerializer, OrderSerializer, StatusOrderSerializer
+from .serializers import PerSerialzer, CategorySerializer, TypeSeralizer, StatusPetSerializer, OrderSerializer, StatusOrderSerializer
 
 class ViewPets(viewsets.ModelViewSet):
     queryset = Pets.objects.all()
