@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from .models import Order, OrderStatus, Job, Worker
-from .serializator import WorkerSerializer, OrderSerializer, OrderStatusSerializer, JobSerializer
+from .serializers import WorkerSerializer, OrderSerializer, OrderStatusSerializer, JobSerializer
 
 urlpatterns = [
     path('workers', views.Allview.as_view(model=Worker, modelserializer=WorkerSerializer)),
