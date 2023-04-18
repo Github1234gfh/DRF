@@ -1,17 +1,18 @@
-from django.urls import path, re_path, include
-from rest_framework.permissions import IsAuthenticated
-from .permitions import IsAdminOrReadOnly, IsOwnerOrReadOnly
-from .models import Product, Order, Cart
-from .serializers import ProductSerializer, CartSerializer, OrderSerializer
+from django.urls import path
 from . import views
 
 urlpatterns = [
-    path(r'auth/', include('djoser.urls')),
-    re_path(r'^auth/', include('djoser.urls.authtoken')),
-    path('products', views.Allview.as_view(model = Product, serializer_class = ProductSerializer,  permission_classes=[IsAdminOrReadOnly])),
-    path('product/<int:pk>', views.Allview.as_view(model = Product, serializer_class = ProductSerializer,  permission_classes=[IsAdminOrReadOnly])),
-    path('orders', views.Allview.as_view(model = Order, serializer_class = OrderSerializer, permission_classes = [IsAuthenticated, IsOwnerOrReadOnly, ])),
-    path('order/<int:pk>', views.Allview.as_view(model = Order, serializer_class = OrderSerializer, permission_classes = [IsAuthenticated, IsOwnerOrReadOnly])),
-    path('carts', views.Allview.as_view(model = Cart, serializer_class = CartSerializer, permission_classes = [IsAuthenticated, IsOwnerOrReadOnly, ])),
-    path('cart/<int:pk>', views.Allview.as_view(model = Cart, serializer_class = CartSerializer, permission_classes = [IsAuthenticated, IsOwnerOrReadOnly, ])),
+    path('logout', views.LogoutUser.as_view()),
+    path('login', views.LoginUser.as_view()),
+    path('registration', views.RegistrationUser.as_view()),
+    path('carts', views.ListCreateProduct.as_view()),
+    path('cart/<int:pk>', views.RetrieveUpdateDestroyCart.as_view()),
+    path('producers', views.ListCreateProducer.as_view()),
+    path('producer/<int:pk>', views.RetrieveUpdateDestroyProducer.as_view()),
+    path('products', views.ListCreateProduct.as_view()),
+    path('product/<int:pk>', views.RetrieveUpdateDestroyProduct.as_view()),
+    path('orders', views.ListCreateOrder.as_view()),
+    path('order/<int:pk>', views.RetrieveUpdateDestroyOrder.as_view()),
+    path('countryes', views.ListCreateCountry.as_view()),
+    path('country/<int:pk>', views.RetrieveUpdateDestroyCountry.as_view()),
 ]

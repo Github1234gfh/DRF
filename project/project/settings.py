@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-v9y$97vw2@@$tqt8eaoo8d8(%4d63ita9luibp03h$=6zixf+3'
+SECRET_KEY = 'django-insecure-mejxg72uoyr9)amqh05pd$2)i&*g8qt@lhb4i-$94o^iif@7be'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -29,10 +29,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app.apps.AppConfig',
     'rest_framework',
-    'rest_framework.authtoken',
-    'djoser'
+    'rest_framework.authtoken'
 ]
-
+AUTH_USER_MODEL = 'app.User'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -43,19 +42,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'project.urls'
-
 REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
-    ],
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication', 
-        'rest_framework.authentication.BasicAuthentication', 
-        'rest_framework.authentication.SessionAuthentication', 
-    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.AllowAny',
+    # ]
 }
+ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
     {
